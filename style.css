@@ -1,0 +1,481 @@
+.kontext {
+	width: 100%;
+	height: 100%;
+}
+
+.kontext .layer {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+	/*box-shadow: 0px 0px 120px rgba( 0, 0, 0, 0.8 );*/
+}
+
+.kontext .layer.show {
+	visibility: visible;
+}
+
+.kontext.capable {
+	-webkit-perspective: 1000px;
+	   -moz-perspective: 1000px;
+	        perspective: 1000px;
+
+	-webkit-transform-style: preserve-3d;
+	   -moz-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+}
+
+.kontext.capable .layer {
+	-webkit-transform: translateZ( -100px );
+	   -moz-transform: translateZ( -100px );
+	        transform: translateZ( -100px );
+}
+
+.kontext.capable .layer.show {
+	-webkit-transform: translateZ( 0px );
+	   -moz-transform: translateZ( 0px );
+	        transform: translateZ( 0px );
+}
+
+.kontext.capable.animate .layer.show.right {
+	-webkit-animation: show-right 1s forwards ease;
+	   -moz-animation: show-right 1s forwards ease;
+	        animation: show-right 1s forwards ease;
+}
+
+.kontext.capable.animate .layer.hide.right {
+	-webkit-animation: hide-right 1s forwards ease;
+	   -moz-animation: hide-right 1s forwards ease;
+	        animation: hide-right 1s forwards ease;
+}
+
+.kontext.capable.animate .layer.show.left {
+	-webkit-animation: show-left 1s forwards ease;
+	   -moz-animation: show-left 1s forwards ease;
+	        animation: show-left 1s forwards ease;
+}
+
+.kontext.capable.animate .layer.hide.left {
+	-webkit-animation: hide-left 1s forwards ease;
+	   -moz-animation: hide-left 1s forwards ease;
+	        animation: hide-left 1s forwards ease;
+}
+
+
+/* CSS animation keyframes */
+
+@-webkit-keyframes show-right {
+	0%   { -webkit-transform: translateZ( -200px ); }
+	40%  { -webkit-transform: translate( 40%, 0 ) scale( 0.8 ) rotateY( -20deg ); }
+	100% { -webkit-transform: translateZ( 0px ); }
+}
+
+@-webkit-keyframes hide-right {
+	0%   { -webkit-transform: translateZ( 0px ); visibility: visible; }
+	40%  { -webkit-transform: translate( -40%, 0 ) scale( 0.8 ) rotateY( 20deg ); }
+	100% { -webkit-transform: translateZ( -200px ); visibility: hidden; }
+}
+
+@-moz-keyframes show-right {
+	0%   { -moz-transform: translateZ( -200px ); }
+	40%  { -moz-transform: translate( 40%, 0 ) scale( 0.8 ) rotateY( -20deg ); }
+	100% { -moz-transform: translateZ( 0px ); }
+}
+
+@-moz-keyframes hide-right {
+	0%   { -moz-transform: translateZ( 0px ); visibility: visible; }
+	40%  { -moz-transform: translate( -40%, 0 ) scale( 0.8 ) rotateY( 20deg ); }
+	100% { -moz-transform: translateZ( -200px ); visibility: hidden; }
+}
+
+@keyframes show-right {
+	0%   { transform: translateZ( -200px ); }
+	40%  { transform: translate( 40%, 0 ) scale( 0.8 ) rotateY( -20deg ); }
+	100% { transform: translateZ( 0px ); }
+}
+
+@keyframes hide-right {
+	0%   { transform: translateZ( 0px ); visibility: visible; }
+	40%  { transform: translate( -40%, 0 ) scale( 0.8 ) rotateY( 20deg ); }
+	100% { transform: translateZ( -200px ); visibility: hidden; }
+}
+
+@-webkit-keyframes show-left {
+	0%   { -webkit-transform: translateZ( -200px ); }
+	40%  { -webkit-transform: translate( -40%, 0 ) scale( 0.8 ) rotateY( 20deg ); }
+	100% { -webkit-transform: translateZ( 0px ); }
+}
+
+@-webkit-keyframes hide-left {
+	0%   { -webkit-transform: translateZ( 0px ); visibility: visible; }
+	40%  { -webkit-transform: translate( 40%, 0 ) scale( 0.8 ) rotateY( -20deg ); }
+	100% { -webkit-transform: translateZ( -200px ); visibility: hidden; }
+}
+
+@-moz-keyframes show-left {
+	0%   { -moz-transform: translateZ( -200px ); }
+	40%  { -moz-transform: translate( -40%, 0 ) scale( 0.8 ) rotateY( 20deg ); }
+	100% { -moz-transform: translateZ( 0px ); }
+}
+
+@-moz-keyframes hide-left {
+	0%   { -moz-transform: translateZ( 0px ); visibility: visible; }
+	40%  { -moz-transform: translate( 40%, 0 ) scale( 0.8 ) rotateY( -20deg ); }
+	100% { -moz-transform: translateZ( -200px ); visibility: hidden; }
+}
+
+@keyframes show-left {
+	0%   { transform: translateZ( -200px ); }
+	40%  { transform: translate( -40%, 0 ) scale( 0.8 ) rotateY( 20deg ); }
+	100% { transform: translateZ( 0px ); }
+}
+
+@keyframes hide-left {
+	0%   { transform: translateZ( 0px ); visibility: visible; }
+	40%  { transform: translate( 40%, 0 ) scale( 0.8 ) rotateY( -20deg ); }
+	100% { transform: translateZ( -200px ); visibility: hidden; }
+}
+
+
+/* Dimmer */
+
+.kontext .layer .dimmer {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+	background: transparent;
+}
+
+	.kontext.capable.animate .layer .dimmer {
+		-webkit-transition: background 1s ease;
+		   -moz-transition: background 1s ease;
+		        transition: background 1s ease;
+	}
+
+	.kontext.capable.animate .layer.hide .dimmer {
+		visibility: visible;
+		background: rgba( 0, 0, 0, 0.7 );
+	}
+
+
+
+
+/* Styles for the demo */
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+body {
+	background-color: #222; 
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGklEQVQIW2NkYGD4D8SMQAwGcAY2AbBKDBUAVuYCBQPd34sAAAAASUVORK5CYII=); */
+	background-repeat: repeat;
+	background-size:auto;
+
+	font-family: Helvetica, sans-serif;
+	font-size: 16px;
+	color: #fff;
+}
+
+.layer {
+	text-align: center;
+	text-shadow: 1px 1px 0px rgba( 0, 0, 0, 0.1 );
+}
+
+.layer h2 {
+	position: relative;
+	top: 20%;
+	margin: 0;
+	font-size: 6.25em;
+}
+
+.layer p {
+	position: relative;
+	top: 20%;
+	margin: 0;
+}
+
+/* .layer.one {
+	
+	background-image: url('turned-on-pendant-lamp-132340.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+
+} */
+
+.heading {
+
+	position: absolute;
+	top: 18%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 45px;
+	color: black;
+	font-weight: 900;
+	white-space: nowrap;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+.title {
+	position: absolute;
+	top: 17%;
+	left: 50%;
+	text-align: center;
+	transform: translate(-50%, -50%);
+	font-size: 5vw;
+	color: black;
+	font-weight: 600;
+	white-space: wrap;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+.text2 {
+
+	position: absolute;
+	top: 27%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 35px;
+	color: black;
+	font-weight: 600;
+	white-space: nowrap;
+	text-shadow: -1px 0 white, 0 0.4px white, 0.4px 0 white, 0 -0.4px white;
+	font-style: bold;
+
+}
+
+/* .textbox {
+
+	position: relative;
+	top: 80%;
+	left: 50%;
+	height: 9%;
+	width: 25%;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	background-color:  rgb(124, 124, 148);
+	box-shadow: 1px 1px 1px 1px black;
+	margin: 20px;
+	transform: translate(-60%, -60%);
+	-ms-transform: translate(-60%, -60%);
+
+  } */
+
+ .text3 {
+
+	position: absolute; 
+	top: 65%; 
+	left: 49%;
+	transform: translate(-50%, -50%);
+	font-size: 25px;
+	color: black;
+	font-weight: 800;
+	white-space: nowrap;
+	text-shadow: -1px 0 white, 0 0.4px white, 0.4px 0 white, 0 -0.4px white;
+	font-style: bold;
+
+	/* font-style: italic; */
+}
+
+.text4 {
+	position: absolute;
+	top: 90%;
+	/*left: 50%; */
+	/* transform: translate(-50%, -50%); */
+	font-size: 25px;
+	color: black;
+	font-weight: 900;
+	white-space: nowrap;
+
+	/* text-shadow: -0.5px 0 white, 0 0.5px white, 0.5px 0 white, 0 -0.5px white; */
+} 
+
+.corner_text {
+	position: absolute;
+	bottom: 8px;
+	right: 16px;
+	font-size: 2vw;
+	text-align: right;
+	bottom: 3%;
+	text-decoration: none
+}
+
+.corner_text2 {
+	
+	font-size: 1vw;
+
+}
+
+a:link {
+	text-decoration: none;
+  }
+
+a:hover {
+	text-decoration: underline;
+  }
+
+.layer.two {
+	background-image: url('HS.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	background-position: center center;
+  }
+/* About Us Button */
+
+.about {
+    text-align: center;
+}
+.about .aboutUsButton {
+
+	position: absolute;
+	top: 15%;
+	left: 90%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	background-color: rgb(182, 129, 127);
+	
+	color: black;
+	font-size: 1vw;
+	font-style: bold;
+	font-weight: 900;
+	padding: 14px 40px;
+	border: black;
+	cursor: pointer;
+	border-radius: 4px;
+	text-align: center;
+	border: 2px solid #140101; 
+  }
+  
+  .about .aboutUsButton:hover {
+	background-color: #7cb4befd;
+  }
+
+
+	.about .haikuButton {
+		position: absolute;
+		top: 15%;
+		left: 15%;
+		transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		background-color: rgb(182, 129, 127);
+		color: black;
+		font-size: 1vw;
+		font-style: bold;
+		font-weight: 900;
+		padding: 14px 40px;
+		border: black;
+		cursor: pointer;
+		border-radius: 4px;
+		text-align: center;
+		border: 2px solid #140101;
+	}
+
+		.about .haikuButton:hover {
+			background-color: #7cb4befd;
+		}
+
+/* Buttons on both the pages */
+.wrapper {
+    text-align: center;
+}
+.wrapper .button {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	background-color: rgb(233, 232, 202);
+	
+	color: black;
+	
+	font-size: 3vw;
+	
+	font-style: bold;
+	font-weight: 900;
+	padding: 14px 40px;
+	border: black;
+	cursor: pointer;
+	border-radius: 4px;
+	text-align: center;
+	border: 2px solid #140101; 
+  }
+  
+  .wrapper .button:hover {
+	background-color: #7cb4befd;
+  }
+
+
+/* End of Button */
+
+.layer.three {
+	background-image: url('College.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	background-position: center center;
+}
+
+.bullets {
+	position: absolute;
+	width: 96%;
+	bottom: 20px;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+  
+
+
+	/* .bullets li {
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		margin: 0 3px;
+
+		background: rgba( 255, 255, 255, 0.5 );
+		box-shadow: 0px 0px 4px rgba( 0, 0, 0, 0.2 );
+		cursor: pointer;
+
+		-webkit-tap-highlight-color: rgba( 0, 0, 0, 0 );
+	}
+
+		.bullets li:hover {
+			background: rgba( 255, 255, 255, 0.8 );
+		} */
+/* 
+		.bullets li.active {
+			cursor: default;
+			background: #fff;
+		} */
+
+@media screen and (max-width: 400px) {
+	body {
+		font-size: 12px;
+	}
+
+	.layer h2 {
+		font-size: 5em;
+	}
+
+	.bullets li {
+		margin: 0 6px;
+	}
+}

@@ -1,0 +1,113 @@
+.HS{
+    padding-top: 20px;
+    background: #7a7a7a;
+    padding-bottom: 30px;
+    border-style: none;
+    font-family: Helvetica, sans-serif;
+    font-size: 30px;
+    color: aliceblue;
+    text-align: center;
+}
+
+h3{
+    font-size: 25px;
+    font-family: Helvetica, sans-serif;
+    color:dimgrey;
+    text-align: center;
+}
+
+.relatedtopic{
+    display: flex;
+    text-align: center;
+    font-size: 25px;
+    font-family: Helvetica, sans-serif;
+    background: #bababa;
+    margin-left:auto;
+    flex-wrap: wrap;
+    
+}
+
+.title{
+    margin-top: 100px;
+   text-align: left;
+    font-family: Helvetica, sans-serif;
+    color: darkgrey;
+}
+
+
+/*Text*/
+
+h1{
+    color: darkgrey;
+        font-family: Helvetica, sans-serif;
+}
+
+p{
+ display: block;
+    font-family: Helvetica, sans-serif;
+  margin-right: 40%;
+    line-height: 1.6;
+}
+
+.quote{
+    font-family: Helvetica, sans-serif;
+    color:azure;
+background-color: burlywood;
+}
+
+/*Button*/
+
+.wrapper {
+    text-align: center;
+}
+
+.relatedbutton{
+    border: 5px;
+    background-color:chocolate;
+  color:floralwhite;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 5px 4px;
+  cursor: pointer;
+    float:inherit;
+    justify-content: center;
+    transition-duration: 0.4s;
+    align-items: center;
+    justify-content: center;
+}
+
+.relatedbutton:hover {
+  background-color: #595959; 
+  color:darksalmon;
+}
+
+
+
+.button{
+  border: 5px;
+    background-color: burlywood;
+  color:cornsilk;
+    padding: 10px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 5px 4px;
+  cursor: pointer;
+    float:inherit;
+    justify-content: center;
+    transition-duration: 0.4s;
+    align-items: center;
+    justify-content: center;
+}
+
+.button:hover {
+  background-color: #595959; 
+  color: white;
+}
+
+img{
+    float:right;
+}
+
+
