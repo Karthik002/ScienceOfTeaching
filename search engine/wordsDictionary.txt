@@ -1,9 +1,0 @@
-senior:0 
-meta-skills:0 
-expert:0 
-skill:0 
-expertise:0 
-novice:0 
-naive:0 
-junior:0 
-master:0 

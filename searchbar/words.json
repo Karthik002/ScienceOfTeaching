@@ -1,0 +1,54 @@
+[
+	{
+		"key": "expert",
+		"value": "0"
+	},
+	{
+		"key": "code",
+		"value": "21"
+	},
+	{
+		"key": "technical",
+		"value": "21"
+	},
+	{
+		"key": "expertise",
+		"value": "0,21"
+	},
+	{
+		"key": "junior",
+		"value": "0"
+	},
+	{
+		"key": "master",
+		"value": "0"
+	},
+	{
+		"key": "senior",
+		"value": "0"
+	},
+	{
+		"key": "meta-skills",
+		"value": "0"
+	},
+	{
+		"key": "skill",
+		"value": "0,21"
+	},
+	{
+		"key": "behaviour",
+		"value": "21"
+	},
+	{
+		"key": "interview",
+		"value": "21"
+	},
+	{
+		"key": "novice",
+		"value": "0"
+	},
+	{
+		"key": "naive",
+		"value": "0"
+	}
+]

@@ -1,0 +1,42 @@
+[
+	{
+		"filePath": "C:/Users/Karthik Prasad/Desktop/Projects/Science of Teaching/search engine/test files/SoT-1-5-Blooms.html",
+		"pageKey": "Bloom's Taxonomy - Original and Revised",
+		"pageName": "SoT-1-5-Blooms",
+		"minorConcepts": "[original Bloom's, revised Bloom's, cognitive complexity, cognitive process, co-dependencies, junior thinkers, senior thinkers]",
+		"majorConcepts": "[Bloom's Taxonomy]",
+		"words": "[knowledge, evaluation, comprehension, evaluation, applying, analysis, memorization, remembering, interpreting]"
+	},
+	{
+		"filePath": "C:/Users/Karthik Prasad/Desktop/Projects/Science of Teaching/search engine/test files/SoT-1-2-Professionalism.html",
+		"pageKey": "Professionalism",
+		"pageName": "SoT-1-2-Professionalism",
+		"minorConcepts": "[providing value, life-long learning, self-improvement, continuous improvement, expecations, baselines]",
+		"majorConcepts": "[teaching as a career, networking, teaching skills, best practices]",
+		"words": "[professional, amateur, appropriate, teaching, learning, assessment, workshops, compensation, responsibility, accountability]"
+	},
+	{
+		"filePath": "C:/Users/Karthik Prasad/Desktop/Projects/Science of Teaching/search engine/test files/SoT-1-3-Mission.html",
+		"pageKey": "Mission Focused Management",
+		"pageName": "SoT-1-3-Mission",
+		"minorConcepts": "[balanced scorecard, senior leadership, delivering value]",
+		"majorConcepts": "[mission focussed management, knowing what you do not know, the how and the what]",
+		"words": "[goals, definitions, strategy, quality, mission, expectations, delivering, value, resources, management]"
+	},
+	{
+		"filePath": "C:/Users/Karthik Prasad/Desktop/Projects/Science of Teaching/search engine/test files/SoT-1-1-InTheBeginning.html",
+		"pageKey": "In The Beginning",
+		"pageName": "SoT-1-1-InTheBeginning",
+		"minorConcepts": "[cognitive science, management sciences]",
+		"majorConcepts": "[introduction, philosophy]",
+		"words": "[accountability, quality, Bloom's, audience, users, readers, beginning]"
+	},
+	{
+		"filePath": "C:/Users/Karthik Prasad/Desktop/Projects/Science of Teaching/search engine/test files/SoT-1-4-Cognitive.html",
+		"pageKey": "Cognitive Skills and Expertise",
+		"pageName": "SoT-1-4-Cognitive",
+		"minorConcepts": "[skill acquisition, deliberate practice, making it stick, learning, meta-skills]",
+		"majorConcepts": "[cognitive science, cognitive psychology, skill and expertise, cognitive skill]",
+		"words": "[skill, expertise, practice, reflection, meta-skills, learning, evaluating, evaluation, tacit, knowledge, thinking, familiarity]"
+	}
+]
