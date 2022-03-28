@@ -3,6 +3,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -11,13 +12,7 @@ import java.util.HashSet;
 
 public class IndexingEngine {
     public static void main(String[] args) throws Exception {
-        
-        // // initialize vars
-        // HashMap<Integer, String> pageIdToPathMap  = new HashMap<Integer, String>();
-        // HashMap<String, String> majorConceptsDictionary = new HashMap<String, String>();
-        // HashMap<String, String> minorConceptsDictionary = new HashMap<String, String>();
-        // HashMap<String, String> wordsDictionary = new HashMap<String, String>();
-        
+
         // initialize vars
         HashSet<Page> pages = new HashSet<Page>();
         int fileCount = 0;
@@ -53,60 +48,16 @@ public class IndexingEngine {
                 {
                     System.out.println("Error: Fields in file not found for file: + " + filePath);
                 }
-
-
-                // // add file to dictionary
-                // int fileId = fileCount;
-                // fileCount++;
-                // pageIdToPathMap.put(fileId, file.getAbsolutePath());
-
-                // // add concepts to dictionary
-                // ArrayList<String> concepts = getFieldFromFile(file, "concepts");
-                // for (String concept : concepts) {
-                //     if (!majorConceptsDictionary.containsKey(concept)) {
-                //         majorConceptsDictionary.put(concept, String.valueOf(fileId));
-                //     } else {
-                //         majorConceptsDictionary.put(concept, majorConceptsDictionary.get(concept) + "," + String.valueOf(fileId));
-                //     }
-                // }
-                
-                // // add words to dictionary
-                // ArrayList<String> words = getFieldFromFile(file, "words");
-                // for (String word : words) {
-                //     if (!wordsDictionary.containsKey(word)) {
-                //         wordsDictionary.put(word, String.valueOf(fileId));
-                //     } else {
-                //         wordsDictionary.put(word, wordsDictionary.get(word) + "," + String.valueOf(fileId));
-                //     }
-                // }
             }
         }
 
-        // write to file
-        File outputFile = new File(outputPath + "/output.json");
-        FileWriter fileWriter = new FileWriter(outputFile);
-        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        int count = 0;
-
-        bufferedWriter.write("[\n");
-        for (Page page : pages) {
-            count++;
-            bufferedWriter.write("\t{\n");
-            bufferedWriter.write("\t\t\"filePath\": \"" + page.filePath.replace('\\', '/') + "\",\n");
-            bufferedWriter.write("\t\t\"pageKey\": \"" + page.pageKey + "\",\n");
-            bufferedWriter.write("\t\t\"pageName\": \"" + page.pageName + "\",\n");
-            bufferedWriter.write("\t\t\"minorConcepts\": \"" + page.minorConcepts + "\",\n");
-            bufferedWriter.write("\t\t\"majorConcepts\": \"" + page.majorConcepts + "\",\n");
-            bufferedWriter.write("\t\t\"words\": \"" + page.words.toString() + "\"\n");
-            bufferedWriter.write("\t}");
-            if (count < pages.size()) bufferedWriter.write(",");
-            bufferedWriter.newLine();
-        }
-
-        bufferedWriter.write("]");
-        bufferedWriter.close();
+        // write to files
+        WriteFieldToJson(pages, "minorConcepts", outputPath);
+        WriteFieldToJson(pages, "majorConcepts", outputPath);
+        WriteFieldToJson(pages, "words", outputPath);
     }
 
+    // get field from html file
     private static ArrayList<String> getFieldFromFile(File file, String field) {
         ArrayList<String> fields = new ArrayList<String>();
         try {
@@ -135,7 +86,41 @@ public class IndexingEngine {
         }
         return fields;
     }
+
+    // Method to write field in all pages to json file
+    private static void WriteFieldToJson(HashSet<Page> pages, String field, String outputPath) throws IOException {
+        File outputFile = new File(outputPath + "/" + field + ".json");
+        FileWriter fileWriter = new FileWriter(outputFile);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        int count = 0;
+
+        bufferedWriter.write("[\n");
+        for (Page page : pages) {
+            count++;
+            bufferedWriter.write("\t{\n");
+            bufferedWriter.write("\t\t\"pageKey\": \"" + page.pageKey + "\",\n");
+            bufferedWriter.write("\t\t\"pageName\": \"" + page.pageName + "\",\n");
+
+            if (field.equals("minorConcepts")) {
+                bufferedWriter.write("\t\t\"minorConcepts\": \"" + page.minorConcepts.toString().replace("[", "").replace("]", "") + "\"\n");
+            } else if (field.equals("majorConcepts")) {
+                bufferedWriter.write("\t\t\"majorConcepts\": \"" + page.majorConcepts.toString().replace("[", "").replace("]", "") + "\"\n");
+            } else if (field.equals("words")) {
+                bufferedWriter.write("\t\t\"words\": \"" + page.words.toString().replace("[", "").replace("]", "") + "\"\n");
+            } else {
+                System.out.println("Error: Field not found: " + field);
+            }
+
+            bufferedWriter.write("\t}");
+            if (count < pages.size()) bufferedWriter.write(",");
+            bufferedWriter.newLine();
+        }
+
+        bufferedWriter.write("]");
+        bufferedWriter.close();
+    }
     
+    // Class containing all the fields from html files
     static class Page {
 
         public String filePath;
