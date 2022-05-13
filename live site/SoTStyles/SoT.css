@@ -1,0 +1,292 @@
+.testColor {
+    background-color: #d2d965;
+}
+
+
+li {
+    list-style-position: outside;
+    font-size: 20px;
+    margin: 25px 80px;
+    font-family: Helvetica, sans-serif;
+    width: 80%;
+    margin-right: 30%;
+    margin-left: 7%;
+    line-height: 1.6;
+}
+
+.takeaway {
+    background-color: #d6f7f0;
+    font-size: 24px;
+    color: #3d3d3d;
+}
+
+.title{
+    margin-top: 100px;
+   text-align: left;
+    font-family: Helvetica, sans-serif;
+}
+
+.header{
+   outline: #6192CA;
+}
+
+/*Dropdown Menu*/
+.dropbtn {
+    border: 5px;
+    background-color: #3d3d3d;
+    color: #d1d1d1;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 1.35vw;
+    text-align: center;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+    /* Dropdown button on hover & focus */
+    .dropbtn:hover, .dropbtn:focus {
+        background-color: #d1d1d1;
+        color: #3d3d3d;
+        text-align: center;
+    }
+
+#nav {
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 1%;
+    margin-left: 1%;
+    border-bottom: 4px solid blue;
+    padding-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    table-layout:fixed;
+    th, td
+
+{
+    width: 1%;
+}
+
+}
+
+.navTablek {
+   
+
+    background-color: #4373C0;
+}
+
+#themesNav {
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    display: inline-block;
+    position: relative;
+    margin: 5px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #3d3d3d;
+    font-family: Helvetica, sans-serif;
+    font-size: 1.25vw;
+    color: #d1d1d1;
+    width: 30vw;
+    z-index: 1;
+}
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        background-color: #d1d1d1;
+        color: #3d3d3d;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-family: Helvetica, sans-serif;
+        font-size: 1.25vw;
+    }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #3d3d3d;
+            color: #d1d1d1;
+        }
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+    display: block;
+}
+
+
+/*Text*/
+
+h1{
+    color: #4373C0;
+    margin-left: 5%;
+        font-family: Helvetica, sans-serif;
+}
+
+p {
+    display: block;
+    font-family: Helvetica, sans-serif;
+    width: 80%;
+    margin-right: 30%;
+    margin-left: 5%;
+    line-height: 1.6;
+    font-size: 20px;
+}
+
+.quote{
+    font-family: Helvetica, sans-serif;
+    color:#3A64AA;
+    width:60%;
+    margin:auto;
+background-color: #86CFD7;
+    margin-bottom: 5%;
+}
+.boxed{
+    border-style: groove;
+    border-width: 10px;
+}
+
+/*Related*/
+
+h3{
+    font-size: 25px;
+    font-family: Helvetica, sans-serif;
+    color:#7296D2;
+    text-align: center;
+    border-bottom-style:double;
+    border-top-style: double;
+    border-color: #57BBC6;
+    border-width: 10px 10px;
+    width: 40%;
+    margin:auto;
+    margin-bottom: 20px;
+}
+
+
+
+.relatedbutton{
+  cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+
+
+.relatedbutton{
+    border-style: dotted;
+    border: 5px;
+    background-color:#4373C0;
+  color:#B5E3E8;
+  text-decoration: none;
+      font-size: 22px;
+      margin: 5px 4px;
+}
+
+.relatedbutton:hover {
+  background-color:#B5E3E8;
+  color:#4373C0;
+}
+
+.related{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row; 
+}
+
+
+.button{
+  border: 5px;
+    background-color: #4373C0;
+  color:#B5E3E8;
+    padding: 10px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 5px 4px;
+  cursor: pointer;
+    float:inherit;
+    justify-content: center;
+    transition-duration: 0.4s;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.SoTButton {
+    border: 5px;
+    background-color: #f6fc71;
+    color: #3d3d3d;
+    padding: 10px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1vw;
+    font-family: Helvetica, sans-serif;
+    margin: 5px 4px;
+    cursor: pointer;
+    float: inherit;
+    justify-content: center;
+    transition-duration: 0.4s;
+    align-items: center;
+    justify-content: center;
+}
+
+.indexButton {
+    border: 5px;
+    background-color: #efe66a;
+    color: #3d3d3d;
+    padding: 10px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-family: Helvetica, sans-serif;
+    margin: 5px 4px;
+    cursor: pointer;
+    float: inherit;
+    justify-content: center;
+    transition-duration: 0.4s;
+    align-items: center;
+    justify-content: center;
+}
+
+.nextPrevButton {
+    border: 5px;
+    background-color: #ffffff;
+    color: #3d3d3d;
+    padding: 10px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-family: Helvetica, sans-serif;
+    margin: 5px 4px;
+    cursor: pointer;
+    float: inherit;
+    justify-content: center;
+    transition-duration: 0.4s;
+    align-items: center;
+    justify-content: center;
+}
+
+.button:hover {
+  background-color: #B5E3E8; 
+  color: #4373C0;
+}
+
+img{
+    float:right;
+}
+
+

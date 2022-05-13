@@ -1,0 +1,27 @@
+[
+	{
+		"pageKey": "Bloom's Taxonomy - Original and Revised",
+		"pageName": "SoT-1-5-Blooms",
+		"majorConcepts": "Bloom's Taxonomy"
+	},
+	{
+		"pageKey": "Professionalism",
+		"pageName": "SoT-1-2-Professionalism",
+		"majorConcepts": "teaching as a career, networking, teaching skills, best practices"
+	},
+	{
+		"pageKey": "Mission Focused Management",
+		"pageName": "SoT-1-3-Mission",
+		"majorConcepts": "mission focussed management, knowing what you do not know, the how and the what"
+	},
+	{
+		"pageKey": "In The Beginning",
+		"pageName": "SoT-1-1-InTheBeginning",
+		"majorConcepts": "introduction, philosophy"
+	},
+	{
+		"pageKey": "Cognitive Skills and Expertise",
+		"pageName": "SoT-1-4-Cognitive",
+		"majorConcepts": "cognitive science, cognitive psychology, skill and expertise, cognitive skill"
+	}
+]

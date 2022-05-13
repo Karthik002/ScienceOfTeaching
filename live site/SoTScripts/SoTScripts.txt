@@ -1,0 +1,487 @@
+﻿
+let columnCount = 3;
+let rowcount = 0;
+let theTable;
+let theThemeTable;
+let theDetailTable;
+let tr;
+let currentCol = 1
+let newCell;
+let theDiv;
+let divTable;
+
+var myFunction = function (target) {
+    target.parentNode.querySelector('.dropdown-content').classList.toggle("show");
+}
+window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+  
+function buildButton(dropDiv, theLabel, theColour) {
+    let button = document.createElement('input');
+    button.type = "button";
+    button.classList.add("dropbtn");
+    button.value = theLabel;
+    button.style.color = theColour;
+    button.style.backgroundColor = "#ffffff";
+    button.style.fontWeight = "900";
+    button.onclick = function () { myFunction(this); };
+    dropDiv.appendChild(button);
+}
+
+function buildRef(refDiv, theTitle, theLink, theColourText, theColourBackground, theNoteCode, theQStr) {
+    let outterDiv = document.createElement('div');
+   
+    theContent = theNoteCode + "@" + theTitle + "@" + theLink + "@" + theColourBackground + "@" + theQStr;
+    let a = document.createElement('a');
+    let link = document.createTextNode(theTitle);
+    a.appendChild(link);
+    a.title = theTitle;
+    a.href = theLink;
+    a.style.color = theColourText;
+    a.style.backgroundColor = theColourBackground;
+
+    let a2 = document.createElement('a');
+    a2.style.display = 'none';
+    a2.name = theNoteCode;
+    a2.textContent = theContent;
+    outterDiv.appendChild(a);
+    outterDiv.appendChild(a2);
+    refDiv.appendChild(outterDiv);
+}
+function buildThemeRef(refDiv, theTitle, theLink, theColourText, theColourBackground) {
+    let outterDiv = document.createElement('div');
+    let a = document.createElement('a');
+    let link = document.createTextNode(theTitle);
+    a.appendChild(link);
+    a.title = theTitle;
+    a.href = theLink;
+    a.style.color = theColourText;
+    a.style.backgroundColor = theColourBackground;
+    outterDiv.appendChild(a);
+    refDiv.appendChild(outterDiv);
+}
+function buildDetailRef(refDiv, theTitle, theLink, theColourText, theColourBackground) {
+    let outterDiv = document.createElement('div');
+    let a = document.createElement('a');
+    let link = document.createTextNode(theTitle);
+    a.appendChild(link);
+    a.title = theTitle;
+    a.href = theLink;
+    a.style.color = theColourText;
+    a.style.backgroundColor = theColourBackground;
+    outterDiv.appendChild(a);
+    refDiv.appendChild(outterDiv);
+}
+
+
+function buildDropdown(theTitle, theColour, theId, theQStr) {
+    theDiv = tr.insertCell(-1);
+
+    let dropDiv = document.createElement('div');
+    dropDiv.classList.add("dropdown");
+    dropDiv.id = theId;
+    dropDiv.name = "section";
+    theDiv.appendChild(dropDiv);
+
+    let innerDiv = document.createElement('div');
+    innerDiv.style.display = 'none';
+    let a2 = document.createElement('a');
+    a2.name = "section";
+    a2.textContent = theId + "@" + theTitle + "@" + theColour + "@" + theQStr;
+    innerDiv.appendChild(a2);
+    theDiv.appendChild(innerDiv);
+
+    buildButton(dropDiv, theTitle, theColour);
+    let refDiv = document.createElement('div');
+    refDiv.classList.add("dropdown-content");
+    refDiv.id = "myDropdown";
+    refDiv.style.color = theColour;
+    dropDiv.appendChild(refDiv);
+    refDiv.style.background.color = theColour;
+    return refDiv;
+}
+function buildDetailDropdown(theTitle, theColour) {
+    theDiv = tr.insertCell(-1);
+
+    let dropDiv = document.createElement('div');
+    dropDiv.classList.add("dropdown");
+    theDiv.appendChild(dropDiv);
+
+    buildButton(dropDiv, theTitle, theColour);
+    let refDiv = document.createElement('div');
+    refDiv.classList.add("dropdown-content");
+    refDiv.id = "myDropdown";
+    refDiv.style.color = theColour;
+    dropDiv.appendChild(refDiv);
+    refDiv.style.background.color = theColour;
+    return refDiv;
+}
+function buildThemeDropdown(theTitle, theColour) {
+    theDiv = tr.insertCell(-1);
+
+    let dropDiv = document.createElement('div');
+    dropDiv.classList.add("dropdown");
+    theDiv.appendChild(dropDiv);
+
+    buildButton(dropDiv, theTitle, theColour);
+    let refDiv = document.createElement('div');
+    refDiv.classList.add("dropdown-content");
+    refDiv.id = "myDropdown";
+    refDiv.style.color = theColour;
+    dropDiv.appendChild(refDiv);
+    refDiv.style.background.color = theColour;
+    return refDiv;
+}
+
+function buildHome() {
+    theDiv = tr.insertCell(-1);
+    var a = document.createElement('a');
+    var link = document.createTextNode("SoT Directory Page");
+    a.appendChild(link);
+    a.classList.add("SoTButton");
+    a.title = "Home";
+    a.href = "./SoTLanding.html";
+    theDiv.appendChild(a);
+}
+
+
+function buildDetailTableForNav(theRtn, mainDivName) {
+    theRtn.arrPack = [{ '-': '', '-': '', '-': '' }]
+    theRtn.col = [];
+    for (var i = 0; i < theRtn.arrPack.length; i++) {
+        for (var key in theRtn.arrPack[i]) {
+            if (theRtn.col.indexOf(key) === -1) {
+                theRtn.col.push(key);
+            }
+        }
+    }
+    theDetailTable = document.createElement('table');
+    theDetailTable.setAttribute('id', 'mTable');
+    theDetailTable.setAttribute('table-layout', 'fixed');
+    tr = theDetailTable.insertRow(-1);
+
+    theTableDiv = document.createElement('div');
+    theTableDiv.setAttribute('id', "firstNavTable");
+
+    theBaseDivForNavTables = document.getElementById(mainDivName);
+    theBaseDivForNavTables.appendChild(theTableDiv);
+    theTableDiv.append(theDetailTable);
+    // so, at this point, we have a big div that could have multiple navTables and at this point, there is one, and it has the table
+    for (var i = 1; i < theRtn.arrPack.length; i++) {
+        tr = theDetailTable.insertRow(-1);
+        for (var j = 0; j < theRtn.col.length; j++) {
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = theRtn.arrPack[i][theRtn.col[j]];
+        }
+    }
+}
+function buildThemeTableForNav(theRtn, mainDivName) {
+    theRtn.arrPack = [{ '-': '', '-': '', '-': '' }]
+    theRtn.col = [];
+    for (var i = 0; i < theRtn.arrPack.length; i++) {
+        for (var key in theRtn.arrPack[i]) {
+            if (theRtn.col.indexOf(key) === -1) {
+                theRtn.col.push(key);
+            }
+        }
+    }
+    theThemeTable = document.createElement('table');
+    theThemeTable.setAttribute('id', 'mTable');
+    tr = theThemeTable.insertRow(-1);
+
+    theTableDiv = document.createElement('div');
+    theTableDiv.setAttribute('id', "firstNavTable");
+
+    theBaseDivForNavTables = document.getElementById(mainDivName);
+    theBaseDivForNavTables.appendChild(theTableDiv);
+    theTableDiv.append(theThemeTable);
+    // so, at this point, we have a big div that could have multiple navTables and at this point, there is one, and it has the table
+    for (var i = 1; i < theRtn.arrPack.length; i++) {
+        tr = theThemeTable.insertRow(-1);
+        for (var j = 0; j < theRtn.col.length; j++) {
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = theRtn.arrPack[i][theRtn.col[j]];
+        }
+    }
+}
+function buildTableForNav(theRtn, mainDivName) {
+    theRtn.arrPack = [{ '-': '', '-': '', '-': '' }]
+    theRtn.col = [];
+    for (var i = 0; i < theRtn.arrPack.length; i++) {
+        for (var key in theRtn.arrPack[i]) {
+            if (theRtn.col.indexOf(key) === -1) {
+                theRtn.col.push(key);
+            }
+        }
+    }
+    theTable = document.createElement('table');
+    theTable.classList.add("navTable");
+    theTable.setAttribute('id', 'mTable');
+    tr = theTable.insertRow(-1);
+
+    theTableDiv = document.createElement('div');
+    theTableDiv.setAttribute('id', "firstNavTable");
+
+    theBaseDivForNavTables = document.getElementById(mainDivName);
+    theBaseDivForNavTables.appendChild(theTableDiv);
+    theTableDiv.append(theTable);
+    // so, at this point, we have a big div that could have multiple navTables and at this point, there is one, and it has the table
+    for (var i = 1; i < theRtn.arrPack.length; i++) {
+        tr = theTable.insertRow(-1);
+        for (var j = 0; j < theRtn.col.length; j++) {
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = theRtn.arrPack[i][theRtn.col[j]];
+        }
+    }
+}
+
+function buildNextPrev(leftRef, rightRef) {
+    theNextPrev = document.getElementById('nextPrev');
+    theNextPrev.setAttribute('align', 'center');
+    if (leftRef !== "") {
+        var prev = document.createElement('a');
+        var prevLink = document.createTextNode("<< Prev");
+        prev.appendChild(prevLink);
+        prev.classList.add("nextPrevButton");
+        prev.title = "<< Prev ";
+        prev.href = leftRef;
+        theNextPrev.appendChild(prev);
+    }
+    if (rightRef !== "") {
+        var next = document.createElement('a');
+        var nextlink = document.createTextNode("Next >>");
+        next.appendChild(nextlink);
+        next.classList.add("nextPrevButton");
+        next.title = "Next >> ";
+        next.href = rightRef;
+        theNextPrev.appendChild(next);
+    }
+}
+
+function buildNav() {
+    columnCount = 3;
+    buildTableForNav(this, 'nav');
+    tr = theTable.insertRow(-1);
+
+    refDiv1 = buildDropdown("1.0 Introduction - Final Editing", "#67f1e9", "d1", "q1,q2,q4");
+    buildRef(refDiv1, "1.1 In The Beginning", "SoT-1-1-InTheBeginning.html", "#3d3d3d", "#67f1e9", "d1n", "q1,q2,q4");
+    buildRef(refDiv1, "1.2 Professionalism vs. Amateurism", "SoT-1-2-Professionalism.html", "#3d3d3d", "#67f1e9", "d1n", "q1,q2,q4");
+    buildRef(refDiv1, "1.3 Mission Focussed Management", "SoT-1-3-Mission.html", "#3d3d3d", "#67f1e9", "d1n", "q1,q2,q4");
+    buildRef(refDiv1, "1.4 Cognitive Skills and Expertise", "SoT-1-4-Cognitive.html", "#3d3d3d", "#67f1e9", "d1n", "q1,q2,q4");
+    buildRef(refDiv1, "1.5 Bloom's Taxonomy", "SoT-1-5-Blooms.html", "#3d3d3d", "#67f1e9", "d1n", "q1,q2,q4");
+
+
+    var sectionCollection = "";
+    for (var i = 0; i < document.getElementsByName('section').length; i++) {
+        theInnerStuff = document.getElementsByName('section')[i].textContent;
+        sectionCollection = sectionCollection + theInnerStuff;
+    }
+
+    var noteCollection = "";
+    for (var i = 0; i < document.getElementsByName('d1n').length; i++) {
+        theInnerStuff = document.getElementsByName('d1n')[i].textContent;
+        noteCollection = noteCollection + theInnerStuff;
+    }
+
+  //   alert("sections " + sectionCollection);
+ //    alert("notes " + noteCollection);
+    
+    refDiv2 = buildDropdown("2.0 Careers and Decisions - Editing", "#C3B5E7", "d2", "q1,q2,q4");
+    buildRef(refDiv2, "2.1 You Are Your Past", "SoT-2-1-YourPast.html", "#3d3d3d", "#C3B5E7", "d2n", "q1,q2,q4");
+    buildRef(refDiv2, "2.2 Co-Teaching", "SoT-2-2-CoTeaching.html", "#3d3d3d", "#C3B5E7", "d2n", "q1,q2,q4");
+    buildRef(refDiv2, "2.3 Supporting Innovators and Innovating", "SoT-2-3-SupportingInnovators.html", "#3d3d3d", "#C3B5E7", "d2n", "q1,q2,q4");
+    buildRef(refDiv2, "2.4 Outliers", "SoT-2-4-Outliers.html", "#3d3d3d", "#C3B5E7", "d2n", "q1,q2,q4");
+    buildRef(refDiv2, "2.5 Being Self-Aware and Mindful", "SoT-2-5-SelfAware.html", "#3d3d3d", "#C3B5E7", "d2n", "q1,q2,q4");
+    buildRef(refDiv2, "2.6 Being Mentored", "SoT-2-6-Mentored.html", "#3d3d3d", "#C3B5E7", "d2n", "q1,q2,q4");
+    buildRef(refDiv2, "2.7 Freshly Minted Instructors", "SoT-2-7-FreshlyMinted.html", "#3d3d3d", "#C3B5E7", "d2n", "q1,q2,q4");
+    buildRef(refDiv2, "2.8 Instructor Motivation", "SoT-2-8-InstructorMotivation.html", "#3d3d3d", "#C3B5E7", "d2n", "q1,q2,q4");
+    buildRef(refDiv2, "2.9 Course Quality", "SoT-2-9-CourseQuality.html", "#3d3d3d", "#C3B5E7", "d2n", "q1,q2,q4");
+
+    refDiv3 = buildDropdown("3.0 Op-Eds - Editing", "#efabc0", "d3", "q1,q2,q4");
+    buildRef(refDiv3, "3.1 Memorization", "SoT-3-1-Memorization.html", "#3d3d3d", "#efabc0", "d3n", "q1,q2,q4");
+    buildRef(refDiv3, "3.2 Assessments - The 'What are you thinking?' - Summative, Final", "SoT-3-2-AssessmentsFinal.html", "#3d3d3d", "#efabc0", "d3n", "q1,q2,q4");
+    buildRef(refDiv3, "3.3 Assessments - The 'OK' - Summative, Final", "SoT-3-3-AssessmentsOk.html", "#3d3d3d", "#efabc0", "d3n", "q1,q2,q4");
+    buildRef(refDiv3, "3.4 Inclusivity, Marginalization, Fairness, Equity, Equality of Students", "SoT-3-4-Inclusivity.html", "#3d3d3d", "#efabc0", "d3n", "q1,q2,q4");
+    buildRef(refDiv3, "3.5 Edutainment and Popularity", "SoT-3-5-Edutainment.html", "#3d3d3d", "#efabc0", "d3n", "q1,q2,q4");
+
+    tr = theTable.insertRow(-1, "#3d3d3d", "#efabc0");
+
+    refDiv4 = buildDropdown("4.0 Students - Editing", "#96d373", "d4", "q1,q2,q4");
+    buildRef(refDiv4, "4.1 Transitioning", "SoT-4-1-Transitioning.html", "#3d3d3d", "#96d373", "d4n", "q1,q2,q4");
+    buildRef(refDiv4, "4.2 Students - A Process View", "SoT-4-2-StudentProcess.html", "#3d3d3d", "#96d373", "d4n", "q1,q2,q4");
+    buildRef(refDiv4, "4.3 Holistic and Student Centric Teaching", "SoT-4-3-StudentCentric.html", "#3d3d3d", "#96d373", "d4n", "q1,q2,q4");
+    buildRef(refDiv4, "4.4 Relationship Management", "SoT-4-4-RelationshipManagement.html", "#3d3d3d", "#96d373", "d4n", "q1,q2,q4");
+    buildRef(refDiv4, "4.5 Student Support", "SoT-4-5-Support.html", "#3d3d3d", "#96d373", "d4n", "q1,q2,q4");
+    buildRef(refDiv4, "4.6 Student Engagement", "SoT-4-6-StudentEngagement.html", "#3d3d3d", "#96d373", "d4n", "q1,q2,q4");
+    buildRef(refDiv4, "4.7 Listening To Students", "SoT-4-7-Listening.html", "#3d3d3d", "#96d373", "d4n", "q1,q2,q4");
+    buildRef(refDiv4, "4.8 Student Motivation", "SoT-4-8-StudentMotivation.html", "#3d3d3d", "#96d373", "d4n", "q1,q2,q4");
+    buildRef(refDiv4, "4.9 Graduate Students and Supervisors", "SoT-4-9-GraduateStudents.html", "#3d3d3d", "#96d373", "d4n", "q1,q2,q4");
+    buildRef(refDiv4, "4.10 Mentoring", "SoT-4-10-Mentoring.html", "#3d3d3d", "#96d373", "d4n", "q1,q2,q4");
+
+    refDiv5 = buildDropdown("5.0 Course Design", "#f4d775", "d5", "q1,q2,q4");
+    buildRef(refDiv5, "5.1 LearningOutcomes", "SoT-5-1-LearningOutcomes.html", "#3d3d3d", "#f4d775", "d5n", "q1,q2,q4");
+    buildRef(refDiv5, "5.2 Outcome Based Assessments", "SoT-5-2-OutcomeBasedAssessments.html", "#3d3d3d", "#f4d775", "d5n", "q1,q2,q4");
+    buildRef(refDiv5, "5.3 Program Design Specifics", "SoT-5-3-ProgramDesignSpecifics.html", "#3d3d3d", "#f4d775", "d5n", "q1,q2,q4");
+    buildRef(refDiv5, "5.4 Course Design Specifics", "SoT-5-4-CoureDesignSpecifics.html", "#3d3d3d", "#f4d775", "d5n", "q1,q2,q4");
+    buildRef(refDiv5, "5.5 Creating Value", "SoT-5-5-CreatingValue.html", "#3d3d3d", "#f4d775", "d5n", "q1,q2,q4");
+    buildRef(refDiv5, "5.6 Online vs Face To Face", "SoT-5-6-OnlineFaceToFace.html", "#3d3d3d", "#f4d775", "d5n", "q1,q2,q4");
+    buildRef(refDiv5, "5.7 Online Best Practice", "SoT-5-7-OnlineBestPractice.html", "#3d3d3d", "#f4d775", "d5n", "q1,q2,q4");
+    buildRef(refDiv5, "5.8 Communicating", "SoT-5-8-Communicating.html", "#3d3d3d", "#f4d775", "d5n", "q1,q2,q4");
+    buildRef(refDiv5, "5.9 Vertical Integration", "SoT-5-9-VerticalIntegration.html", "#3d3d3d", "#f4d775", "d5n", "q1,q2,q4");
+    buildRef(refDiv5, "5.10 Horizontal Integration", "SoT-5-10-HorizontalIntegration.html", "#3d3d3d", "#f4d775", "d5n", "q1,q2,q4");
+    buildRef(refDiv5, "5.11 Full Integration", "SoT-5-11-FullIntegration.html", "#3d3d3d", "#f4d775", "d5n", "q1,q2,q4");
+    buildRef(refDiv5, "5.12 Teaching Assistants", "SoT-5-12-TeachingAssistants.html", "#3d3d3d", "#f4d775", "d5n", "q1,q2,q4");
+
+    refDiv6 = buildDropdown("6.0 Course Evolution", "#cdcbb6", "d6", "q1,q2,q4");
+    buildRef(refDiv6, "6.1 Program Review", "SoT-6-1-ProgramReview.html", "#3d3d3d", "#cdcbb6", "d6n", "q1,q2,q4");
+    buildRef(refDiv6, "6.2 Evaluating Courses", "SoT-6-2-EvaluatingCourses.html", "#3d3d3d", "#cdcbb6", "d6n", "q1,q2,q4");
+    buildRef(refDiv6, "6.3 Course Review", "SoT-6-3-CourseReview.html", "#3d3d3d", "#cdcbb6", "d6n", "q1,q2,q4");
+    buildRef(refDiv6, "6.4 Changing A Course", "SoT-6-4-ChangingACourse.html", "#3d3d3d", "#cdcbb6", "d6n", "q1,q2,q4");
+    buildRef(refDiv6, "6.5 Taking Over A Course", "SoT-6-5-TakingOverACourse.html", "#3d3d3d", "#cdcbb6", "d6n", "q1,q2,q4");
+
+    tr = theTable.insertRow(-1, "#3d3d3d", "#efabc0");
+
+    refDiv7 = buildDropdown("7.0 Tools For Evolution", "#81ac9a", "d7", "q1,q2,q4");
+    buildRef(refDiv7, "7.1 Applying Lean Principles", "SoT-7-1-LeanPrinciples.html", "#3d3d3d",  "#81ac9a","d7n", "q1,q2,q4");
+    buildRef(refDiv7, "7.2 Continuous Improvement", "SoT-7-2-ContinuousImprovement.html", "#3d3d3d",  "#81ac9a","d7n", "q1,q2,q4");
+    buildRef(refDiv7, "7.3 Process Evaluation", "SoT-7-3-ProcessEvaluation.html", "#3d3d3d",  "#81ac9a","d7n", "q1,q2,q4");
+    buildRef(refDiv7, "7.4 Cause and Effect Analysis", "SoT-7-4-CauseAndEffect.html", "#3d3d3d",  "#81ac9a","d7n", "q1,q2,q4");
+    buildRef(refDiv7, "7.5 Class Feedback", "SoT-7-5-ClassFeedback.html", "#3d3d3d",  "#81ac9a","d7n", "q1,q2,q4");
+    buildRef(refDiv7, "7.6 Surveys and Polls", "SoT-7-6-SurveysAndPolls.html", "#3d3d3d",  "#81ac9a","d7n", "q1,q2,q4");
+
+    refDiv8 = buildDropdown("8.0 Bloom's", "#dda531", "d8", "q1,q2,q4");
+    buildRef(refDiv8, "8.1 Knowledge", "SoT-8-1-Knowledge.html", "#3d3d3d",  "#dda531","d8n", "q1,q2,q4");
+    buildRef(refDiv8, "8.2 Comprehension ", "SoT-8-2-Comprehension.html", "#3d3d3d",  "#dda531","d89n", "q1,q2,q4");
+    buildRef(refDiv8, "8.3 Applying", "SoT-8-3-Applying.html", "#3d3d3d",  "#dda531","d8n", "q1,q2,q4");
+    buildRef(refDiv8, "8.4 Analysing", "SoT-8-4-Analysing.html", "#3d3d3d",  "#dda531","d8n", "q1,q2,q4");
+    buildRef(refDiv8, "8.5 Synthesizing", "SoT-8-5-Synthesizing.html", "#3d3d3d",  "#dda531","d8n", "q1,q2,q4");
+    buildRef(refDiv8, "8.6 Evaluating", "SoT-8-6-Evaluating.html", "#3d3d3d",  "#dda531","d8n", "q1,q2,q4");
+
+    refDiv9 = buildDropdown("9.0 Teaching Cognitive Skills", "#b898c6", "d9", "q1,q2,q4");
+    buildRef(refDiv9, "9.1 Cognitive Skills", "SoT-9-1-CognitiveSkills.html", "#3d3d3d",  "#b898c6","d9n", "q1,q2,q4");
+    buildRef(refDiv9, "9.2 Listening", "SoT-9-2-Listening.html", "#3d3d3d",  "#b898c6","d9n", "q1,q2,q4");
+    buildRef(refDiv9, "9.3 Writing", "SoT-9-3-Writing.html", "#3d3d3d",  "#b898c6","d9n", "q1,q2,q4");
+    buildRef(refDiv9, "9.4 Reading", "SoT-9-4-Reading.html", "#3d3d3d",  "#b898c6","d9n", "q1,q2,q4");
+    buildRef(refDiv9, "9.5 Problem-Solving", "SoT-9-5-ProblemSolving.html", "#3d3d3d",  "#b898c6","d9n", "q1,q2,q4");
+    buildRef(refDiv9, "9.6 Design", "SoT-9-6-Design.html", "#3d3d3d",  "#b898c6","d9n", "q1,q2,q4");
+    buildRef(refDiv9, "9.7 Note Taking", "SoT-9-7-NoteTaking.html", "#3d3d3d",  "#b898c6","d9n", "q1,q2,q4");
+    buildRef(refDiv9, "9.8 Studying", "SoT-9-8-Studying.html", "#3d3d3d",  "#b898c6","d9n", "q1,q2,q4");
+    buildRef(refDiv9, "9.9 Teamwork", "SoT-9-9-Teamwork.html", "#3d3d3d",  "#b898c6","d9n", "q1,q2,q4");
+
+    tr = theTable.insertRow(-1, "#3d3d3d", "#efabc0");
+
+    refDiv10 = buildDropdown("10.0 General Teaching Concepts", "#a1b9d7", "d10", "q1,q2,q4");
+    buildRef(refDiv10, "10.1 No Teach", "SoT-10-1-NoTeach.html", "#3d3d3d",  "#a1b9d7","d10n", "q1,q2,q4");
+    buildRef(refDiv10, "10.2 Threshold Concepts", "SoT-10-2-ThresholdConcepts.html", "#3d3d3d", "#a1b9d7","d10n", "q1,q2,q4");
+    buildRef(refDiv10, "10.3 Matching Methods To Outcomes", "SoT-10-3-MethodsOutcomes.html", "#3d3d3d", "#a1b9d7","d10n", "q1,q2,q4");
+    buildRef(refDiv10, "10.4 Learning Styles", "SoT-10-4-LearningStyles.html", "#3d3d3d", "#a1b9d7","d10n", "q1,q2,q4");
+    buildRef(refDiv10, "10.5 Role of Dead Air", "SoT-10-5-DeadAir.html", "#3d3d3d", "#a1b9d7","d10n", "q1,q2,q4");
+    buildRef(refDiv10, "10.6 Role of Writing and Sketching", "SoT-10-6-WritingAndSketching.html", "#3d3d3d", "#a1b9d7","d10n", "q1,q2,q4");
+    buildRef(refDiv10, "10.7 Writing Cases and Design Problems", "SoT-10-7-WritingCases.html", "#3d3d3d", "#a1b9d7","d10n", "q1,q2,q4");
+    buildRef(refDiv10, "10.8 Design and Case Days", "SoT-10-8-DesignAndCaseDays.html", "#3d3d3d", "#a1b9d7","d10n", "q1,q2,q4");
+    buildRef(refDiv10, "10.9 Designing Term Projects", "SoT-10-9-DesigningTermProjects.html", "#3d3d3d", "#a1b9d7","d10n", "q1,q2,q4");
+
+    refDiv11 = buildDropdown("11.0 Specific Methods", "#e86161", "d11", "q1,q2,q4");
+    buildRef(refDiv11, "11.1 Think, Pair, Share", "SoT-11-1-ThinkPairShare.html", "#3d3d3d", "#e86161","d11n", "q1,q2,q4");
+    buildRef(refDiv11, "11.2 Constructive Failure", "SoT-11-2-Constructive Failure.html", "#3d3d3d", "#e86161","d11n", "q1,q2,q4");
+    buildRef(refDiv11, "11.3 Experiential Learning", "SoT-11-3-ExperientialLearning.html", "#3d3d3d", "#e86161","d11n", "q1,q2,q4");
+    buildRef(refDiv11, "11.4 Reflections", "SoT-11-4-Reflections.html", "#3d3d3d", "#e86161","d11n", "q1,q2,q4");
+    buildRef(refDiv11, "11.5 Narrative Method", "SoT-11-5-NarrativeMethod.html", "#3d3d3d", "#e86161","d11n", "q1,q2,q4");
+    buildRef(refDiv11, "11.6 Peer Instruction", "SoT-11-6-PeerInstruction.html", "#3d3d3d", "#e86161","d11n", "q1,q2,q4");
+    buildRef(refDiv11, "11.7 Flipping", "SoT-11-7-Flipping.html", "#3d3d3d", "#e86161","d11n", "q1,q2,q4");
+    buildRef(refDiv11, "11.8 Blended", "SoT-11-8-Blended.html", "#3d3d3d", "#e86161", "d11n", "q1,q2,q4");
+    buildRef(refDiv11, "11.9 Flipping, Think-Pair-Share, Constructive Failure, Deliberate Practice", "SoT-11-9-WorkingTogether.html", "#3d3d3d", "#e86161", "d11n", "q1,q2,q4");
+
+    refDiv12 = buildDropdown("12.0 Assessing", "#e3ade5", "d12", "q1,q2,q4");
+    buildRef(refDiv12, "12.1 Assessments", "SoT-12-1-Assessments.html", "#3d3d3d", "#e3ade5","d12n", "q1,q2,q4");
+    buildRef(refDiv12, "12.2 Online Assessments", "SoT-12-2-OnlineAssessments.html", "#3d3d3d", "#e3ade5","d12n", "q1,q2,q4");
+    buildRef(refDiv12, "12.3 Peer Based Comparisons", "SoT-12-3-PeerBasedComparisons.html", "#3d3d3d", "#e3ade5","d12n", "q1,q2,q4");
+    buildRef(refDiv12, "12.4 Peer Based Comparisons & Rubrics", "SoT-12-4-SubjectiveRubrics.html", "#3d3d3d", "#e3ade5","d12n", "q1,q2,q4");
+    buildRef(refDiv12, "12.5 Multiple Choice Assessments", "SoT-12-5-MultipleChoice.html", "#3d3d3d", "#e3ade5","d12n", "q1,q2,q4");
+    buildRef(refDiv12, "12.6 Exam Grading", "SoT-12-6-ExamGrading.html", "#3d3d3d", "#e3ade5","d12n", "q1,q2,q4");
+    buildRef(refDiv12, "12.7 What’s on the exam?", "SoT-12-7-WhatIsOnTheExam.html", "#3d3d3d", "#e3ade5","d12n", "q1,q2,q4");
+    buildRef(refDiv12, "12.8  Peer Evaluations", "SoT-12-8-PeerEvaluations.html", "#3d3d3d", "#e3ade5","d12n", "q1,q2,q4");
+    buildRef(refDiv12, "12.9 Redemption and Reformation", "SoT-12-9-RedemptionReformation.html", "#3d3d3d", "#e3ade5","d12n", "q1,q2,q4");
+
+    tr = theTable.insertRow(-1, "#3d3d3d", "#efabc0");
+
+    refDiv13 = buildDropdown("13.0 Challenges", "#d2d965", "d13", "q1,q2,q4");
+    buildRef(refDiv13, "13.1 Onboarding", "SoT-13-1-Onboarding.html", "#3d3d3d", "#d2d965","d13n", "q1,q2,q4");
+    buildRef(refDiv13, "13.2 The First Lecture", "SoT-13-2-TheFirstLecture.html", "#3d3d3d", "#d2d965","d13n", "q1,q2,q4");
+    buildRef(refDiv13, "13.3 Crisis Driven Online", "SoT-13-3-CrisisDrivenOnline.html", "#3d3d3d", "#d2d965","d13n", "q1,q2,q4");
+    buildRef(refDiv13, "13.4 Classroom Attitude and Behavior", "SoT-13-4-ClassroomAttitudeBehavior.html", "#3d3d3d", "#d2d965","d13n", "q1,q2,q4");
+    buildRef(refDiv13, "13.5 Bias In The Classroom", "SoT-13-5-BiasInTheClassroom.html", "#3d3d3d", "#d2d965","d13n", "q1,q2,q4");
+    buildRef(refDiv13, "13.6 Eating Mistakes", "SoT-13-6-Eating Mistakes.html", "#3d3d3d", "#d2d965","d13n", "q1,q2,q4");
+    buildRef(refDiv13, "13.7 DealingWith TeamConflicts", "SoT-13-7-DealingWithTeamConflicts.html", "#3d3d3d", "#d2d965","d13n", "q1,q2,q4");
+    buildRef(refDiv13, "13.8  Students At Risk - Grades", "SoT-13-8-StudentsAtRiskGrades.html", "#3d3d3d", "#d2d965","d13n", "q1,q2,q4");
+    buildRef(refDiv13, "13.9 Students At Risk – Mental Health", "SoT-13-9-StudentsAtRiskMentalHealth.html", "#3d3d3d", "#d2d965","d13n", "q1,q2,q4");
+    buildRef(refDiv13, "13.10 Instructors At Risk – Mental Health", "SoT-13-10-InstructorsAtRiskMentalHealth.html", "#3d3d3d", "#d2d965","d13n", "q1,q2,q4");
+    buildRef(refDiv13, "13.11 Instructors At Risk – In Over Your Head", "SoT-13-11-InstructorsAtRiskInOverYourHead.html", "#3d3d3d", "#d2d965","d13n", "q1,q2,q4");
+
+    refDiv14 = buildDropdown("xx.x New Notes", "#b4da55", "d14", "q1,q2,q4");
+    buildRef(refDiv14, "xx.x Academic Freedom", "SoT-xx-x-AcademicFreedom.html", "#3d3d3d", "#b4da55", "d14n", "q1,q2,q4");
+    buildRef(refDiv14, "xx.x Course Hardness - Effort", "SoT-xx-x-CourseHardnessEffort.html", "#3d3d3d", "#b4da55", "d14n", "q1,q2,q4");
+    buildRef(refDiv14, "xx.x Course Hardness - Marking", "SoT-xx-x-CourseHardnessMarking.html", "#3d3d3d", "#b4da55", "d14n", "q1,q2,q4");
+    buildRef(refDiv14, "xx.x Academic Decision Making", "SoT-xx-x-AcademicDecisionMaking.html", "#3d3d3d", "#b4da55", "d14n", "q1,q2,q4");
+    buildRef(refDiv14, "xx.x Understand Your Students", "SoT-xx-x-SoT-xx-x-UnderstandingStudents.html", "#3d3d3d", "#b4da55", "d14n", "q1,q2,q4");
+    buildRef(refDiv14, "xx.x Holistic Perspective", "SoT-xx-x-SoT-xx-x-HolisticPerspective.html", "#3d3d3d", "#b4da55", "d14n", "q1,q2,q4");
+    buildRef(refDiv14, "xx.x Uncertainty", "SoT-xx-x-Uncertainty.html", "#3d3d3d", "#b4da55", "d14n", "q1,q2,q4");
+    buildRef(refDiv14, "xx.x Expert Students", "SoT-xx-x-ExpertStudents.html", "#3d3d3d", "#b4da55", "d14n", "q1,q2,q4");
+    buildRef(refDiv14, "xx.x Course Elements", "SoT-xx-x-CourseElements.html", "#3d3d3d", "#b4da55", "d14n", "q1,q2,q4");
+    buildRef(refDiv14, "xx.x Mark Inflation", "SoT-xx-x-MarkInflation.html", "#3d3d3d", "#b4da55", "d14n", "q1,q2,q4");
+    buildRef(refDiv14, "xx.x Non Expert Teaching", "SoT-xx-x-NonExpertTeaching.html", "#3d3d3d", "#b4da55", "d14n", "q1,q2,q4");
+    buildRef(refDiv14, "xx.x Top Ten Mistakes", "SoT-xx-x-TenWorst.html", "#3d3d3d", "#b4da55", "d14n", "q1,q2,q4");
+    buildRef(refDiv14, "xx.x Top Ten Best Practices", "SoT-xx-x-TenBest.html", "#3d3d3d", "#b4da55", "d14n", "q1,q2,q4");
+    buildRef(refDiv14, "xx.x Students At Risk", "SoT-xx-x-StudentsAtRisk.html", "#3d3d3d", "#b4da55", "d14n", "q1,q2,q4");
+    buildRef(refDiv14, "xx.x Structured And Ill-Structured Problem Solving", "SoT-xx-x-StructuredAndIllStructuredProblemSolving.html", "#3d3d3d", "#b4da55", "d14n", "q1,q2,q4");
+    buildHome(divTable);
+}
+function buildThemesNav() {
+    columnCount = 3;
+    buildThemeTableForNav(this, 'themesNav');
+    tr = theThemeTable.insertRow(-1);
+
+    refDiv1 = buildThemeDropdown("I want to go beyond memorization!", "#3e903e");
+    buildThemeRef(refDiv1, "You should first look at the course design. First stop is Learning Outcomes.", "SoT-5-1-LearningOutcomes.html", "#3d3d3d", "#f4d775");
+    buildThemeRef(refDiv1, "And remember to review Bloom's", "SoT-8-1-Knowledge.html", "#3d3d3d", "#dda531");
+    buildThemeRef(refDiv1, "Then you are probably ready to think about possible methods.", "SoT-10-1-NoTeach.html", "#3d3d3d", "#a1b9d7"); 
+ 
+    refDiv2 = buildThemeDropdown("My Course Sucks!", "#3e903e");
+    buildThemeRef(refDiv2, "Try to follow the process, and start with what is the problem?", "SoT-6-1-ProgramReview.html", "#3d3d3d", "#cdcbb6");
+    buildThemeRef(refDiv2, "Next, check your overall course design, starting with Learning Outcomes.", "SoT-5-1-LearningOutcomes.html", "#3d3d3d", "#f4d775");
+    buildThemeRef(refDiv2, "And, do not forget your assessments. They have to align!", "SoT-12-1-Assessments.html", "#3d3d3d", "#e3ade5");
+    buildThemeRef(refDiv2, "P.S. Along the way, you might need some of the Lean concepts.", "SoT-7-1-LeanPrinciples.html", "#3d3d3d", "#81ac9a");
+
+
+}
+function buildDetailsNav() {
+    columnCount = 3;
+    buildDetailTableForNav(this, 'detailsNav');
+    tr = theDetailTable.insertRow(-1);
+
+    refDiv1 = buildDetailDropdown("I want to improve student engagement.", "#ca2c2c");
+    buildDetailRef(refDiv1, "Tips for engaging.", "SoT-4-6-StudentEngagement.html", "#3d3d3d", "#96d373");
+    buildDetailRef(refDiv1, "You will need to listen to the students.", "SoT-4-7-Listening.html", "#3d3d3d", "#96d373");
+    buildDetailRef(refDiv1, "Some ideas for motivating.", "SoT-4-8-StudentMotivation.html", "#3d3d3d", "#96d373");
+    buildDetailRef(refDiv1, "And, we do not want to forget the power of communication.", "SoT-5-8-Communicating.html", "#3d3d3d", "#f4d775");
+
+    refDiv2 = buildDetailDropdown("I want to make my lessons stick!", "#ca2c2c");
+    buildDetailRef(refDiv2, "Constructive failure helps to create memories.", "SoT-11-2-Constructive Failure.html", "#3d3d3d", "#e86161");
+    buildDetailRef(refDiv2, "As does experiential learning.", "SoT-11-3-ExperientialLearning.html", "#3d3d3d", "#e86161");
+    buildDetailRef(refDiv2, "Weekly reflections linked to metacognition can help many. ", "SoT-11-4-Reflections.html", "#3d3d3d", "#e86161");
+    buildDetailRef(refDiv2, "Purpose driven stories can set hooks and helpful imagery.", "SoT-11-5-NarrativeMethod.html", "#3d3d3d", "#e86161");
+
+
+
+}
+    

@@ -1,0 +1,27 @@
+[
+	{
+		"pageKey": "Bloom's Taxonomy - Original and Revised",
+		"pageName": "SoT-1-5-Blooms",
+		"minorConcepts": "original Bloom's, revised Bloom's, cognitive complexity, cognitive process, co-dependencies, junior thinkers, senior thinkers"
+	},
+	{
+		"pageKey": "Professionalism",
+		"pageName": "SoT-1-2-Professionalism",
+		"minorConcepts": "providing value, life-long learning, self-improvement, continuous improvement, expecations, baselines"
+	},
+	{
+		"pageKey": "Mission Focused Management",
+		"pageName": "SoT-1-3-Mission",
+		"minorConcepts": "balanced scorecard, senior leadership, delivering value"
+	},
+	{
+		"pageKey": "In The Beginning",
+		"pageName": "SoT-1-1-InTheBeginning",
+		"minorConcepts": "cognitive science, management sciences"
+	},
+	{
+		"pageKey": "Cognitive Skills and Expertise",
+		"pageName": "SoT-1-4-Cognitive",
+		"minorConcepts": "skill acquisition, deliberate practice, making it stick, learning, meta-skills"
+	}
+]

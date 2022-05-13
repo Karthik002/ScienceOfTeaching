@@ -5,9 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 
 public class IndexingEngine {
@@ -16,7 +14,6 @@ public class IndexingEngine {
         // initialize vars
         HashSet<Page> pages = new HashSet<Page>();
         int fileCount = 0;
-
 
         // get user inputs
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -33,8 +30,8 @@ public class IndexingEngine {
 
                 // read and process file
                 String filePath = file.getAbsolutePath();
-                String pageKey = getFieldFromFile(file, "pageKey").get(0);
-                String pageName = getFieldFromFile(file, "pageName").get(0);
+                String pageKey = ""; //getFieldFromFile(file, "pageKey").get(0);
+                String pageName = ""; //getFieldFromFile(file, "pageName").get(0);
                 ArrayList<String> minorConcepts = getFieldFromFile(file, "minorConcepts");
                 ArrayList<String> majorConcepts = getFieldFromFile(file, "majorConcepts");
                 ArrayList<String> words = getFieldFromFile(file, "words");

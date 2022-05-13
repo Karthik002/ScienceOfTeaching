@@ -1,0 +1,223 @@
+var words = [];
+var minorConcepts = [];
+var majorConcepts = [];
+
+var displayMaxWords = 30;
+var displayMaxMinor = 30;
+var displayMaxMajor = 30;
+
+var searchValue = "";
+var searchInput = document.getElementById("search");
+
+searchInput.addEventListener("input", (e) => {
+    hotKeysOnSearch(e, displayMaxWords, displayMaxMajor, displayMaxMinor);
+}
+);
+
+function hotKeysOnSearch(e, displayWords, displayMajor, displayMinor){
+    let parent = document.getElementById("searchTableResults");
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+
+    let theSearchTable = document.getElementById("theSearchTable");
+
+    let extraCountWords = 0;
+    let extraCountMinor = 0;
+    let extraCountMajor = 0;
+
+    if (theSearchTable === null) {
+        let searchTableResults = document.getElementById("searchTableResults");
+        theSearchTable = document.createElement("table");
+        theSearchTable.setAttribute('id', 'theSearchTable');
+        searchTableResults.appendChild(theSearchTable);
+    }
+
+    searchValue = e.target.value.toLowerCase();
+
+    let valueLen = searchValue.length;
+
+    if (valueLen > 1) {
+
+        processHeader("Major References ", theSearchTable);
+        extraCountMajor = processList(majorConcepts, theSearchTable, searchValue, displayMajor, true);
+        processFooter("Additional References: ", extraCountMajor, theSearchTable);
+
+        processHeader("Minor References ", theSearchTable);
+        extraCountMinor = processList(minorConcepts, theSearchTable, searchValue, displayMinor, false);
+        processFooter("Additional References: ", extraCountMinor, theSearchTable);
+
+        processHeader("Key Word References ", theSearchTable);
+        extraCountWords = processList(words, theSearchTable, searchValue, displayWords, false);
+        processFooter("Additional References: ", extraCountWords, theSearchTable);
+
+    }
+}
+
+function processFooter(theText, extraCount, theTable) {
+    if (extraCount > 0) {
+        let tr = theTable.insertRow(-1);
+        let newCell = tr.insertCell(-1);
+        newCell.width = "10%";
+        newCell = tr.insertCell(-1);
+        newCell.width = "20%";
+        newCell.style.textAlign = "left";
+        let span1 = document.createElement('span');
+        span1.style.fontSize = '125%';
+        span1.style.fontFamily = "Impact,Charcoal,sans-serif";
+        let titletxtNode1 = document.createTextNode(theText + extraCount);
+        span1.appendChild(titletxtNode1);
+        newCell.appendChild(span1);
+        newCell = tr.insertCell(-1);
+        newCell.width = "70%";
+    }
+}
+
+function processHeader(theText, theTable) {
+    let tr = theTable.insertRow(-1);
+    let newCell = tr.insertCell(-1);
+    newCell.width = "10%";
+    newCell.style.textAlign = "left";
+    let span1 = document.createElement('span');
+    span1.style.fontSize = '150%';
+    span1.style.color = 'blue';
+    span1.style.fontFamily = "Impact,Charcoal,sans-serif";
+    let titletxtNode1 = document.createTextNode(theText);
+    span1.appendChild(titletxtNode1);
+    newCell.appendChild(span1);
+    newCell.onclick = function (event) { headerClicked(this) };      
+    newCell = tr.insertCell(-1);
+    newCell.width = "20%";
+    newCell = tr.insertCell(-1);
+    newCell.width = "70%";
+}
+
+function headerClicked(element) {
+    let hdrStr = element.value;
+    if (hdrStr === "Key Word References") {
+        displayMaxWords = displayMaxWords * 2;
+    }
+    if (hdrStr === "Minor References") {
+        displayMaxMinor = displayMaxMinor * 2;
+    }
+    if (hdrStr === "Major References") {
+        displayMaxMajor = displayMaxMajor * 2;
+    }
+    let e = document.getElementById("search");
+    hotKeysOnSearch(e, displayMaxWords, displayMaxMajor, displayMaxMinor);
+}
+
+function processList(theEntryList, theTable, value, displayMax, traceFlag) {
+    let hitCount = 0;
+    let displayCount = 0;
+    let rowCount = 0;
+    theEntryList.forEach(theEntry => {
+        let dictionaryEntry = theEntry.value.toLowerCase();
+        let presenceTest = dictionaryEntry.indexOf(value);
+       
+        if (presenceTest >= 0) {
+            hitCount = hitCount + 1;     
+            if (displayCount < displayMax) {
+                displayCount = displayCount + 1;
+                let tr = theTable.insertRow(-1);
+
+                let newCell = tr.insertCell(-1);
+                newCell.width = "20%";
+                newCell.style.textAlign = "left";
+                rowCount = rowCount + 1;
+                newCell.setAttribute('id', "dataCell" + rowcount);
+
+                newCell = tr.insertCell(-1);
+                newCell.width = "10%";
+                newCell.style.textAlign = "left";
+
+                let span1 = document.createElement('span');
+                span1.style.fontSize = '125%';
+                span1.style.fontFamily = "Impact,Charcoal,sans-serif";
+                span1.style.color = "black";
+                let titletxtNode1 = document.createTextNode(theEntry.pageKey);
+                span1.appendChild(titletxtNode1);
+                newCell.appendChild(span1);
+
+                newCell = tr.insertCell(-1);
+                newCell.width = "70%";
+                newCell.style.textAlign = "left";
+
+                let loopControl = true;
+                let remainingPhraseList = theEntry.value;
+                let pageNameStr = theEntry.pageName + ".html"
+                while (loopControl) {
+                    let sepaIndx1 = remainingPhraseList.indexOf(",");
+                    let workingPhrase = "";
+                    if (sepaIndx1 < 0) {
+                        loopControl = false;
+                        workingPhrase = remainingPhraseList;
+                    }
+                    else {
+                        workingPhrase = remainingPhraseList.substring(0, sepaIndx1);
+                        remainingPhraseList = remainingPhraseList.substring(sepaIndx1 + 1);
+                        remainingPhraseList = remainingPhraseList.trim();
+                    }
+                    workingPhrase = workingPhrase.trim();
+                    let phraseTest = workingPhrase.indexOf(value);
+                    if (phraseTest >= 0) {
+                        let span1 = document.createElement('span');
+                        span1.style.fontSize = '125%';
+                        span1.style.fontFamily = "Impac t,Charcoal,sans-serif";
+                        span1.classList.add('searchlink');
+                        span1.style.textDecoration = "underline";
+                        var a = document.createElement('a');
+                        var link = document.createTextNode(workingPhrase);
+                        a.appendChild(link);
+                        a.title = workingPhrase;
+                        a.href = "./" + pageNameStr;
+                        span1.appendChild(a);
+                        newCell.appendChild(span1);
+                        span1 = document.createElement('span');
+                        span1.style.fontSize = '125%';
+                        span1.style.fontFamily = "Impact,Charcoal,sans-serif";
+                        var spacing = document.createTextNode(" ");
+                        span1.appendChild(spacing);
+                        newCell.appendChild(span1);
+                    }
+                }
+            }
+            else {
+            }
+        }
+    }
+    )
+    let extraCount = hitCount - displayCount;
+    return extraCount;
+}
+
+//#region the fetching
+
+fetch("/SoT/searchbar/words.json")
+    .then(response => response.json())
+    .then(data => {
+        words = data.map(user => {
+            return { pageKey: user.pageKey, pageName: user.pageName, value: user.words}
+        }
+        )
+    })
+
+fetch("/SoT/searchbar/minorConcepts.json")
+    .then(response => response.json())
+    .then(data => {
+        minorConcepts = data.map(user => {
+            return { pageKey: user.pageKey, pageName: user.pageName, value: user.minorConcepts}
+        }
+        )
+    })
+
+fetch("/SoT/searchbar/majorConcepts.json")
+    .then(response => response.json())
+    .then(data => {
+        majorConcepts = data.map(user => {
+            return { pageKey: user.pageKey, pageName: user.pageName, value: user.majorConcepts}
+        }
+        )
+    })
+
+//#endregion
