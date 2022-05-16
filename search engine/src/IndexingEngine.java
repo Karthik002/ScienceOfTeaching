@@ -30,13 +30,34 @@ public class IndexingEngine {
 
                 // read and process file
                 String filePath = file.getAbsolutePath();
-                String pageKey = ""; //getFieldFromFile(file, "pageKey").get(0);
-                String pageName = ""; //getFieldFromFile(file, "pageName").get(0);
+
+                String pageKey = "";
+                ArrayList<String> pageKeyList = getFieldFromFile(file, "pageKey");
+                if (pageKeyList.size() == 1)
+                {
+                    pageKey = pageKeyList.get(0);
+                }
+                else
+                {
+                    System.out.println("page key not found for page with path: " + filePath);
+                }
+
+                String pageName = "";
+                ArrayList<String> pageNameList = getFieldFromFile(file, "pageName");
+                if (pageNameList.size() == 1)
+                {
+                    pageName = pageNameList.get(0);
+                }
+                else
+                {
+                    System.out.println("page name not found for page with path: " + filePath);
+                }
+
                 ArrayList<String> minorConcepts = getFieldFromFile(file, "minorConcepts");
                 ArrayList<String> majorConcepts = getFieldFromFile(file, "majorConcepts");
                 ArrayList<String> words = getFieldFromFile(file, "words");
 
-                if (filePath != null && pageKey != null && pageName != null && minorConcepts != null && majorConcepts != null && words != null) {
+                if (filePath != null && pageKey != "" && pageName != "" && minorConcepts != null && majorConcepts != null && words != null) {
                     
                     Page page = new Page(filePath, pageKey, pageName, minorConcepts, majorConcepts, words);
                     pages.add(page);
