@@ -5,11 +5,6 @@
 		"words": "accountability, quality, Bloom's, audience, users, readers, beginning, processes, design, caveat, caution, beware, risks, tenure, professionalism, rants, op-eds"
 	},
 	{
-		"pageKey": "Cognitive Skills and Expertise",
-		"pageName": "SoT-1-4-Cognitive",
-		"words": "skill, expertise, practice, reflection, meta-skills, learning, evaluating, evaluation, tacit, knowledge, thinking, familiarity"
-	},
-	{
 		"pageKey": "Professionalism",
 		"pageName": "SoT-1-2-Professionalism",
 		"words": "professional, amateur, appropriate, assessment, workshops, compensation, responsibility, accountability, reflection, assumptions, expertise, gap analysis, career progression, community, networking, culture"
@@ -18,6 +13,11 @@
 		"pageKey": "Mission Focused Management",
 		"pageName": "SoT-1-3-Mission",
 		"words": "goals, definitions, strategy, quality, mission, expectations, delivering, value, resources, management"
+	},
+	{
+		"pageKey": "Cognitive Skills and Expertise",
+		"pageName": "SoT-1-4-Cognitive",
+		"words": "skill, expertise, practice, reflection, meta-skills, learning, evaluating, evaluation, tacit, knowledge, thinking, familiarity"
 	},
 	{
 		"pageKey": "Bloom's Taxonomy - Original and Revised",

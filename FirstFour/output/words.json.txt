@@ -1,0 +1,137 @@
+[
+	{
+		"pageKey": "Holistic and Student Centric Teaching",
+		"pageName": "SoT-4-3-StudentCentric",
+		"words": "student instructor relationship, student concerns, term, courses, tough love, student problems, empathy"
+	},
+	{
+		"pageKey": "Freshly Minted Instructors",
+		"pageName": "SoT-2-7-FreshlyMinted",
+		"words": "career, mentor, observation, strength, weekness, adjustment, atitude, development"
+	},
+	{
+		"pageKey": "Transitioning From High School",
+		"pageName": "SoT-4-1-Transitioning",
+		"words": "navigate, transition, high school, high school to university, student transition, transition challenges, changing student body, cognitive skills, university"
+	},
+	{
+		"pageKey": "Students - A Process View",
+		"pageName": "SoT-4-2-StudentProcess",
+		"words": "department, program, student, teaching, profession, professors, teachers, program chair, transparency, care, faculty, faculty involvement"
+	},
+	{
+		"pageKey": "Memorization",
+		"pageName": "SoT-3-1-Memorization",
+		"words": "knowledge, cognitive process, principles, concepts, theories, retention"
+	},
+	{
+		"pageKey": "Being Mentored",
+		"pageName": "SoT-2-6-Mentored",
+		"words": "junior, senior, advice, relationship, respect, value, guidance, experience, expectations, boundary"
+	},
+	{
+		"pageKey": "Co-Teaching",
+		"pageName": "SoT-2-2-CoTeaching",
+		"words": "design, assessment, reflection, assumption, syllabus, senior, novice, common view, coherent, equal, fair, personal"
+	},
+	{
+		"pageKey": "Student Motivation",
+		"pageName": "SoT-4-8-StudentMotivation",
+		"words": "peer, peers, assessment, value, improvement, skill, self-learning"
+	},
+	{
+		"pageKey": "Relationship Management",
+		"pageName": "SoT-4-4-RelationshipManagement",
+		"words": "education expectations, teaching expectations, student expectations, personal, indivualized, stakeholders, contacts, contact points, engagement, holistic education, relationships, quality, mentoring"
+	},
+	{
+		"pageKey": "Assessments - The 'What are you thinking?' Summative Final",
+		"pageName": "SoT-3-2-AssessmentsFinal",
+		"words": "exam, summative, final, weighting"
+	},
+	{
+		"pageKey": "Bloom's Taxonomy - Original and Revised",
+		"pageName": "SoT-1-5-Blooms",
+		"words": "knowledge, evaluation, comprehension, evaluation, applying, analysis, memorization, remembering, interpreting"
+	},
+	{
+		"pageKey": "Mentoring Students",
+		"pageName": "SoT-4-10-Mentoring",
+		"words": "honest, mentoree, mentee, mentor, mentoring, discussions, conversations, trust, blunt, open, time commitment"
+	},
+	{
+		"pageKey": "Student Engagement",
+		"pageName": "SoT-4-6-StudentEngagement",
+		"words": "remote, classroom, rewarding, Q&A, schedule, lecture, discussions, edutainment, pre-recordings, live stream, educational technology"
+	},
+	{
+		"pageKey": "Professionalism",
+		"pageName": "SoT-1-2-Professionalism",
+		"words": "professional, amateur, appropriate, assessment, workshops, compensation, responsibility, accountability, reflection, assumptions, expertise, gap analysis, career progression, community, networking, culture"
+	},
+	{
+		"pageKey": "Listening To Students",
+		"pageName": "SoT-4-7-Listening",
+		"words": "confidence, issues, student feedback, student complaint, push back, student problems, workload"
+	},
+	{
+		"pageKey": "Mission Focused Management",
+		"pageName": "SoT-1-3-Mission",
+		"words": "goals, definitions, strategy, quality, mission, expectations, delivering, value, resources, management"
+	},
+	{
+		"pageKey": "Instructor Motivation",
+		"pageName": "SoT-2-8-InstructorMotivation",
+		"words": "feedback, neutral, mentor, evaluation, observation, student interaction, dynamics"
+	},
+	{
+		"pageKey": "Support and Consideration Of Students",
+		"pageName": "SoT-4-5-Support",
+		"words": "heavy load, heavyloading, workload, extracurriculars, relationship, experience, learning theory, compassion"
+	},
+	{
+		"pageKey": "You Are Your Past",
+		"pageName": "SoT-2-1-YourPast",
+		"words": "method, process, awareness, confidence, experience, behaviour, practice, feedback"
+	},
+	{
+		"pageKey": "Cognitive Skills and Expertise",
+		"pageName": "SoT-1-4-Cognitive",
+		"words": "skill, expertise, practice, reflection, meta-skills, learning, evaluating, evaluation, tacit, knowledge, thinking, familiarity"
+	},
+	{
+		"pageKey": "Supporting Innovators and Innovating",
+		"pageName": "SoT-2-3-SupportingInnovators",
+		"words": "issues, uncertainty, apprentice, baseline, intervention, advocates, culture, opportunity, assessment, expertise"
+	},
+	{
+		"pageKey": "Outliers",
+		"pageName": "SoT-2-4-Outliers",
+		"words": "norms, students, instructor, creative, passion, care, decision making, junior, evaluation, support"
+	},
+	{
+		"pageKey": "Course Quality",
+		"pageName": "SoT-2-9-CourseQuality",
+		"words": "knowledge, cognitive skills, process, improvement, perception, assumption, qualitative, quantitative"
+	},
+	{
+		"pageKey": "Graduate Students and Supervisors",
+		"pageName": "SoT-4-9-GraduateStudents",
+		"words": "graduate, grad student, supervisor, training, support, references, degree"
+	},
+	{
+		"pageKey": "Edutainment and Popularity",
+		"pageName": "SoT-3-5-Edutainment",
+		"words": "instructor, student, popularity"
+	},
+	{
+		"pageKey": "Being Self-Aware and Mindful",
+		"pageName": "SoT-2-5-SelfAware",
+		"words": "moderate, actions, methods, interpretation, consciously, perception, preceding, concurrent, subsequent"
+	},
+	{
+		"pageKey": "In The Beginning",
+		"pageName": "SoT-1-1-InTheBeginning",
+		"words": "accountability, quality, Bloom's, audience, users, readers, beginning, processes, design, caveat, caution, beware, risks, tenure, professionalism, rants, op-eds"
+	}
+]

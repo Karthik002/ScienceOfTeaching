@@ -1,0 +1,137 @@
+[
+	{
+		"pageKey": "Holistic and Student Centric Teaching",
+		"pageName": "SoT-4-3-StudentCentric",
+		"minorConcepts": "student focused, holistic, behaviour, individualized learning, student centric teaching"
+	},
+	{
+		"pageKey": "Freshly Minted Instructors",
+		"pageName": "SoT-2-7-FreshlyMinted",
+		"minorConcepts": "professional, teacher, mindset, feedback, assumptionsv"
+	},
+	{
+		"pageKey": "Transitioning From High School",
+		"pageName": "SoT-4-1-Transitioning",
+		"minorConcepts": "peer support, student instructor relationship, grades, shock, grade averages, adjust"
+	},
+	{
+		"pageKey": "Students - A Process View",
+		"pageName": "SoT-4-2-StudentProcess",
+		"minorConcepts": "job motivation, teaching motivation, quality processes, teaching for the future, active listening, evaluations"
+	},
+	{
+		"pageKey": "Memorization",
+		"pageName": "SoT-3-1-Memorization",
+		"minorConcepts": "teaching styles, learning styles, instant recall"
+	},
+	{
+		"pageKey": "Being Mentored",
+		"pageName": "SoT-2-6-Mentored",
+		"minorConcepts": "fixed mindset, growth mindset, expert, novice"
+	},
+	{
+		"pageKey": "Co-Teaching",
+		"pageName": "SoT-2-2-CoTeaching",
+		"minorConcepts": "compromise, teammate, team member, interaction"
+	},
+	{
+		"pageKey": "Student Motivation",
+		"pageName": "SoT-4-8-StudentMotivation",
+		"minorConcepts": "engage, edutainment, prizes, motivation, punitive, marks"
+	},
+	{
+		"pageKey": "Relationship Management",
+		"pageName": "SoT-4-4-RelationshipManagement",
+		"minorConcepts": "customer relationship management theory, education cost, student customer, learning to think, invest in education, hopes"
+	},
+	{
+		"pageKey": "Assessments - The 'What are you thinking?' Summative Final",
+		"pageName": "SoT-3-2-AssessmentsFinal",
+		"minorConcepts": "cheat sheet, regurgitation, policies, mastery, alternatives"
+	},
+	{
+		"pageKey": "Bloom's Taxonomy - Original and Revised",
+		"pageName": "SoT-1-5-Blooms",
+		"minorConcepts": "original Bloom's, revised Bloom's, cognitive complexity, cognitive process, co-dependencies, junior thinkers, senior thinkers"
+	},
+	{
+		"pageKey": "Mentoring Students",
+		"pageName": "SoT-4-10-Mentoring",
+		"minorConcepts": "credibility, relationship, advice, role, coaching, capacity, regular meeting, listen"
+	},
+	{
+		"pageKey": "Student Engagement",
+		"pageName": "SoT-4-6-StudentEngagement",
+		"minorConcepts": "self-learning, reward, flipped classroom, Bloom's Taxonomy, deliverables, student input"
+	},
+	{
+		"pageKey": "Professionalism",
+		"pageName": "SoT-1-2-Professionalism",
+		"minorConcepts": "providing value, life-long learning, self-improvement, continuous improvement, expectations, baselines, networking"
+	},
+	{
+		"pageKey": "Listening To Students",
+		"pageName": "SoT-4-7-Listening",
+		"minorConcepts": "assessment, advice, student issues, root problem, push back"
+	},
+	{
+		"pageKey": "Mission Focused Management",
+		"pageName": "SoT-1-3-Mission",
+		"minorConcepts": "balanced scorecard, senior leadership, delivering value"
+	},
+	{
+		"pageKey": "Instructor Motivation",
+		"pageName": "SoT-2-8-InstructorMotivation",
+		"minorConcepts": "intrinsic, extrinsic, rewards, valued, passion"
+	},
+	{
+		"pageKey": "Support and Consideration Of Students",
+		"pageName": "SoT-4-5-Support",
+		"minorConcepts": "dynamic teaching, student needs, program design, positive experience, electives"
+	},
+	{
+		"pageKey": "You Are Your Past",
+		"pageName": "SoT-2-1-YourPast",
+		"minorConcepts": "feedback, observation, evolving, awareness"
+	},
+	{
+		"pageKey": "Cognitive Skills and Expertise",
+		"pageName": "SoT-1-4-Cognitive",
+		"minorConcepts": "skill acquisition, deliberate practice, making it stick, learning, meta-skills"
+	},
+	{
+		"pageKey": "Supporting Innovators and Innovating",
+		"pageName": "SoT-2-3-SupportingInnovators",
+		"minorConcepts": "risk, implementation, change, improvement"
+	},
+	{
+		"pageKey": "Outliers",
+		"pageName": "SoT-2-4-Outliers",
+		"minorConcepts": "Bloom's, understand, innovation, failure, success, risk"
+	},
+	{
+		"pageKey": "Course Quality",
+		"pageName": "SoT-2-9-CourseQuality",
+		"minorConcepts": "outcome, measurement, effective, efficient"
+	},
+	{
+		"pageKey": "Graduate Students and Supervisors",
+		"pageName": "SoT-4-9-GraduateStudents",
+		"minorConcepts": "supervise, supervisor, collaboration, expectations, compatibility"
+	},
+	{
+		"pageKey": "Edutainment and Popularity",
+		"pageName": "SoT-3-5-Edutainment",
+		"minorConcepts": "learning outcomes, assessments, teaching, peer observation, learning activities"
+	},
+	{
+		"pageKey": "Being Self-Aware and Mindful",
+		"pageName": "SoT-2-5-SelfAware",
+		"minorConcepts": "responsibility, accountability, fairness, personality, behaviour"
+	},
+	{
+		"pageKey": "In The Beginning",
+		"pageName": "SoT-1-1-InTheBeginning",
+		"minorConcepts": "cognitive science, management sciences, neuroscience, expectations, guidance, advice,  starting out"
+	}
+]
